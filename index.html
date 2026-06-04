@@ -1,7 +1,1440 @@
-¡Hola! 😊
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cafés Oliver y Hugo - El mejor café de Colombia en Madrid. Visítanos en Calle María de Molina 22. Café en grano, molido, terraza y venta de cafeteras.">
+    <meta name="keywords" content="café Madrid, café Colombia, café en grano Madrid, café molido Madrid, cafetería Madrid, Cafés Oliver y Hugo">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Cafés Oliver y Hugo | El mejor café de Colombia en Madrid">
+    <meta property="og:description" content="Descubre el café de Colombia de máxima calidad. Terraza, venta en grano y molido, y cafeteras para casa. En el corazón de Madrid.">
+    <meta property="og:type" content="website">
+    <title>Cafés Oliver y Hugo | Café de Colombia en Madrid</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-Estaba esperando tu confirmación sobre el nombre exacto del negocio:
+        :root {
+            --negro: #0a0a0a;
+            --cafe-oscuro: #2C1A0E;
+            --cafe-medio: #5C3317;
+            --cafe-claro: #A0522D;
+            --cafe-dorado: #C8860A;
+            --crema: #F5ECD7;
+            --crema-claro: #FAF6EF;
+            --blanco: #ffffff;
+            --gris-suave: #f0f0f0;
+            --texto-claro: #888888;
+            --font-titulo: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
 
-> **¿Es "Café Oliver y Hugo"** o **"Cafés Oliver y Hugo"?**
+        html {
+            scroll-behavior: smooth;
+        }
 
-Con eso, genero el código de tu web completa de inmediato. 🙌
+        body {
+            font-family: var(--font-body);
+            background-color: var(--negro);
+            color: var(--crema);
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(200, 134, 10, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: var(--font-titulo);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--crema);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--cafe-dorado);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            color: var(--crema);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--cafe-dorado);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cafe-dorado);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--cafe-dorado);
+            color: var(--negro) !important;
+            padding: 10px 24px;
+            border-radius: 2px;
+            font-weight: 600 !important;
+            transition: background 0.3s ease !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--cafe-claro) !important;
+            color: var(--blanco) !important;
+        }
+
+        .nav-cta::after {
+            display: none !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 2px;
+            background: var(--crema);
+            transition: all 0.3s ease;
+        }
+
+        /* ===== HERO ===== */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--negro);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(92, 51, 23, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(200, 134, 10, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 80%, rgba(44, 26, 14, 0.6) 0%, transparent 50%);
+        }
+
+        .hero-illustration {
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 600px;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding-top: 80px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(200, 134, 10, 0.15);
+            border: 1px solid rgba(200, 134, 10, 0.4);
+            color: var(--cafe-dorado);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 2px;
+            margin-bottom: 30px;
+        }
+
+        #hero h1 {
+            font-family: var(--font-titulo);
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 900;
+            line-height: 1.05;
+            color: var(--crema);
+            margin-bottom: 10px;
+            max-width: 700px;
+        }
+
+        #hero h1 span {
+            color: var(--cafe-dorado);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            font-weight: 300;
+            color: rgba(245, 236, 215, 0.7);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 50px;
+            margin-top: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--cafe-dorado);
+            color: var(--negro);
+            padding: 16px 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--cafe-claro);
+            color: var(--blanco);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--crema);
+            padding: 16px 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 2px;
+            border: 1px solid rgba(245, 236, 215, 0.3);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--cafe-dorado);
+            color: var(--cafe-dorado);
+            transform: translateY(-2px);
+        }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(245, 236, 215, 0.4);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, rgba(200, 134, 10, 0.6), transparent);
+            animation: scrollAnim 2s ease infinite;
+        }
+
+        @keyframes scrollAnim {
+            0%, 100% { opacity: 1; transform: scaleY(1); }
+            50% { opacity: 0.3; transform: scaleY(0.5); }
+        }
+
+        /* ===== SVG ILLUSTRATIONS ===== */
+        .coffee-svg-hero {
+            position: absolute;
+            right: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%;
+            max-width: 550px;
+            opacity: 0.8;
+        }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--cafe-oscuro);
+            border-top: 1px solid rgba(200, 134, 10, 0.2);
+            border-bottom: 1px solid rgba(200, 134, 10, 0.2);
+            padding: 40px 5%;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .stat-number {
+            font-family: var(--font-titulo);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--cafe-dorado);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(245, 236, 215, 0.6);
+            margin-top: 5px;
+        }
+
+        /* ===== SECCIONES GENERALES ===== */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            color: var(--cafe-dorado);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-titulo);
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: var(--crema);
+            line-height: 1.2;
+        }
+
+        .section-header p {
+            max-width: 550px;
+            margin: 20px auto 0;
+            color: rgba(245, 236, 215, 0.6);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: var(--cafe-dorado);
+            margin: 20px auto 0;
+        }
+
+        /* ===== NUESTRA HISTORIA ===== */
+        #historia {
+            background: var(--negro);
+        }
+
+        .historia-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .historia-visual {
+            position: relative;
+        }
+
+        .historia-main-img {
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .historia-accent {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 200px;
+            height: 200px;
+            background: rgba(200, 134, 10, 0.08);
+            border: 1px solid rgba(200, 134, 10, 0.2);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .historia-badge {
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            background: var(--cafe-oscuro);
+            border: 1px solid rgba(200, 134, 10, 0.3);
+            padding: 20px;
+            border-radius: 4px;
+        }
+
+        .historia-badge-icon {
+            font-size: 2rem;
+            display: block;
+            text-align: center;
+        }
+
+        .historia-badge-text {
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--cafe-dorado);
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .historia-content h2 {
+            font-family: var(--font-titulo);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--crema);
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .historia-content h2 em {
+            color: var(--cafe-dorado);
+            font-style: normal;
+        }
+
+        .historia-content p {
+            color: rgba(245, 236, 215, 0.65);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 0.98rem;
+        }
+
+        .historia-firma {
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(200, 134, 10, 0.2);
+        }
+
+        .firma-avatars {
+            display: flex;
+            gap: -10px;
+        }
+
+        .firma-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--cafe-dorado);
+            overflow: hidden;
+            background: var(--cafe-oscuro);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-titulo);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cafe-dorado);
+        }
+
+        .firma-avatar:last-child {
+            margin-left: -15px;
+        }
+
+        .firma-text strong {
+            display: block;
+            color: var(--crema);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .firma-text span {
+            color: rgba(245, 236, 215, 0.5);
+            font-size: 0.8rem;
+        }
+
+        /* ===== SERVICIOS ===== */
+        #servicios {
+            background: linear-gradient(180deg, var(--negro) 0%, var(--cafe-oscuro) 100%);
+        }
+
+        .servicios-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .servicio-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(200, 134, 10, 0.1);
+            padding: 50px 40px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .servicio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--cafe-dorado), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .servicio-card:hover {
+            background: rgba(200, 134, 10, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .servicio-card:hover::before {
+            opacity: 1;
+        }
+
+        .servicio-icon {
+            margin-bottom: 25px;
+        }
+
+        .servicio-card h3 {
+            font-family: var(--font-titulo);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--crema);
+            margin-bottom: 15px;
+        }
+
+        .servicio-card p {
+            color: rgba(245, 236, 215, 0.6);
+            line-height: 1.8;
+            font-size: 0.92rem;
+        }
+
+        .servicio-tag {
+            display: inline-block;
+            margin-top: 25px;
+            font-size: 0.72rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--cafe-dorado);
+            border-bottom: 1px solid rgba(200, 134, 10, 0.3);
+            padding-bottom: 2px;
+        }
+
+        /* ===== CAFÉ DE COLOMBIA ===== */
+        #cafe {
+            background: var(--cafe-oscuro);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #cafe::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 134, 10, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cafe-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .cafe-content h2 {
+            font-family: var(--font-titulo);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--crema);
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .cafe-content h2 span {
+            color: var(--cafe-dorado);
+        }
+
+        .cafe-content p {
+            color: rgba(245, 236, 215, 0.65);
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 0.98rem;
+        }
+
+        .cafe-features {
+            list-style: none;
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .cafe-features li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(245, 236, 215, 0.8);
+            font-size: 0.92rem;
+        }
+
+        .cafe-features li::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            border-radius: 50%;
+            background: rgba(200, 134, 10, 0.2);
+            border: 1px solid var(--cafe-dorado);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8860A' stroke-width='2.5'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 12px;
+        }
+
+        .cafe-visual {
+            position: relative;
+        }
+
+        .precio-destaque {
+            background: rgba(200, 134, 10, 0.1);
+            border: 1px solid rgba(200, 134, 10, 0.3);
+            border-radius: 4px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .precio-destaque .precio-label {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cafe-dorado);
+            margin-bottom: 5px;
+        }
+
+        .precio-destaque .precio-valor {
+            font-family: var(--font-titulo);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--crema);
+        }
+
+        .precio-destaque .precio-desc {
+            font-size: 0.85rem;
+            color: rgba(245, 236, 215, 0.5);
+            margin-top: 5px;
+        }
+
+        /* ===== TERRAZA ===== */
+        #terraza {
+            background: var(--negro);
+        }
+
+        .terraza-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .terraza-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .terraza-visual svg {
+            width: 100%;
+            height: auto;
+        }
+
+        .terraza-content h2 {
+            font-family: var(--font-titulo);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--crema);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .terraza-content h2 span {
+            color: var(--cafe-dorado);
+        }
+
+        .terraza-content p {
+            color: rgba(245, 236, 215, 0.65);
+            line-height: 1.9;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .terraza-highlight {
+            background: rgba(92, 51, 23, 0.3);
+            border-left: 3px solid var(--cafe-dorado);
+            padding: 20px 25px;
+            margin-top: 25px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .terraza-highlight p {
+            color: var(--crema) !important;
+            font-style: italic;
+            margin: 0 !important;
+            font-size: 1rem !important;
+        }
+
+        /* ===== HORARIO ===== */
+        #horario {
+            background: linear-gradient(135deg, var(--cafe-oscuro) 0%, #1a0f07 100%);
+            position: relative;
+        }
+
+        .horario-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .horario-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .horario-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(200, 134, 10, 0.2);
+            border-radius: 4px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .horario-card:hover {
+            border-color: var(--cafe-dorado);
+            background: rgba(200, 134, 10, 0.05);
+        }
+
+        .horario-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .horario-card h3 {
+            font-family: var(--font-titulo);
+            font-size: 1.2rem;
+            color: var(--cafe-dorado);
+            margin-bottom: 15px;
+        }
+
+        .horario-time {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--crema);
+            font-family: var(--font-titulo);
+            display: block;
+        }
+
+        .horario-days {
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(245, 236, 215, 0.5);
+            margin-top: 10px;
+            display: block;
+        }
+
+        .horario-nota {
+            margin-top: 40px;
+            padding: 20px 30px;
+            background: rgba(200, 134, 10, 0.08);
+            border: 1px solid rgba(200, 134, 10, 0.2);
+            border-radius: 4px;
+            color: rgba(245, 236, 215, 0.6);
+            font-size: 0.88rem;
+        }
+
+        /* ===== CONTACTO ===== */
+        #contacto {
+            background: var(--negro);
+        }
+
+        .contacto-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contacto-info h2 {
+            font-family: var(--font-titulo);
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            color: var(--crema);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .contacto-info h2 span {
+            color: var(--cafe-dorado);
+        }
+
+        .contacto-info > p {
+            color: rgba(245, 236, 215, 0.6);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+        }
+
+        .contacto-items {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contacto-item-icon {
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
+            background: rgba(200, 134, 10, 0.1);
+            border: 1px solid rgba(200, 134, 10, 0.3);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .contacto-item-text strong {
+            display: block;
+            color: var(--crema);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .contacto-item-text a,
+        .contacto-item-text span {
+            color: rgba(245, 236, 215, 0.6);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.3s ease;
+        }
+
+        .contacto-item-text a:hover {
+            color: var(--cafe-dorado);
+        }
+
+        .mapa-container {
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid rgba(200, 134, 10, 0.2);
+        }
+
+        .mapa-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            filter: grayscale(80%) contrast(1.1);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(200, 134, 10, 0.2);
+            border-radius: 2px;
+            color: var(--crema);
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            border-color: var(--cafe-dorado);
+            color: var(--cafe-dorado);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: #050505;
+            border-top: 1px solid rgba(200, 134, 10, 0.15);
+            padding: 50px 5% 30px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-titulo);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--crema);
+        }
+
+        .footer-logo span {
+            color: var(--cafe-dorado);
+        }
+
+        .footer-tagline {
+            font-size: 0.8rem;
+            color: rgba(245, 236, 215, 0.4);
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .footer-nav {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .footer-nav a {
+            color: rgba(245, 236, 215, 0.5);
+            text-decoration: none;
+            font-size: 0.82rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--cafe-dorado);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 0.78rem;
+            color: rgba(245, 236, 215, 0.3);
+        }
+
+        .footer-address {
+            font-size: 0.78rem;
+            color: rgba(245, 236, 215, 0.3);
+            text-align: right;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .historia-container,
+            .cafe-container,
+            .contacto-container {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .historia-visual {
+                display: none;
+            }
+
+            .servicios-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .terraza-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coffee-svg-hero {
+                opacity: 0.15;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.98);
+                flex-direction: column;
+                padding: 30px;
+                gap: 25px;
+                border-bottom: 1px solid rgba(200, 134, 10, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .servicios-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .horario-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-top {
+                flex-direction: column;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .footer-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .footer-address {
+                text-align: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                max-width: 280px;
+            }
+
+            .coffee-svg-hero {
+                display: none;
+            }
+
+            section {
+                padding: 70px 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
+
+        /* ===== ANIMACIONES ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav role="navigation" aria-label="Menú principal">
+        <a href="#hero" class="nav-logo" aria-label="Cafés Oliver y Hugo - Inicio">Cafés <span>Oliver & Hugo</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#historia">Nuestra Historia</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#cafe">Nuestro Café</a></li>
+            <li><a href="#horario">Horario</a></li>
+            <li><a href="#contacto" class="nav-cta">Visítanos</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero" aria-label="Presentación principal">
+
+        <!-- SVG Decorativo Hero -->
+        <svg class="coffee-svg-hero" viewBox="0 0 500 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Taza grande -->
+            <ellipse cx="250" cy="420" rx="140" ry="30" fill="rgba(92,51,23,0.4)"/>
+            <path d="M110 320 Q110 450 250 450 Q390 450 390 320 L370 280 H130 Z" fill="rgba(44,26,14,0.8)" stroke="rgba(200,134,10,0.5)" stroke-width="2"/>
+            <ellipse cx="250" cy="280" rx="120" ry="25" fill="rgba(92,51,23,0.6)" stroke="rgba(200,134,10,0.4)" stroke-width="2"/>
+            <!-- Café líquido -->
+            <ellipse cx="250" cy="280" rx="110" ry="20" fill="rgba(160,82,45,0.7)"/>
+            <!-- Asa taza -->
+            <path d="M390 310 Q440 310 440 360 Q440 410 390 410" stroke="rgba(200,134,10,0.5)" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <!-- Platillo -->
+            <ellipse cx="250" cy="460" rx="170" ry="25" fill="rgba(44,26,14,0.6)" stroke="rgba(200,134,10,0.3)" stroke-width="1.5"/>
+            <ellipse cx="250" cy="455" rx="165" ry="20" fill="rgba(92,51,23,0.3)"/>
+            <!-- Vapor -->
+            <path d="M210 260 Q215 230 205 200 Q195 170 205 140" stroke="rgba(200,134,10,0.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M250 255 Q255 225 245 195 Q235 165 245 135" stroke="rgba(200,134,10,0.25)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <path d="M290 260 Q295 230 285 200 Q275 170 285 140" stroke="rgba(200,134,10,0.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- Granos de café decorativos -->
+            <ellipse cx="100" cy="150" rx="18" ry="12" fill="rgba(92,51,23,0.5)" transform="rotate(-30 100 150)"/>
+            <line x1="100" y1="138" x2="100" y2="162" stroke="rgba(200,134,10,0.4)" stroke-width="1.5" transform="rotate(-30 100 150)"/>
+            <ellipse cx="400" cy="200" rx="18" ry="12" fill="rgba(92,51,23,0.5)" transform="rotate(20 400 200)"/>
+            <line x1="400" y1="188" x2="400" y2="212" stroke="rgba(200,134,10,0.4)" stroke-width="1.5" transform="rotate(20 400 200)"/>
+            <ellipse cx="430" cy="130" rx="14" ry="9" fill="rgba(92,51,23,0.4)" transform="rotate(-15 430 130)"/>
+            <line x1="430" y1="121" x2="430" y2="139" stroke="rgba(200,134,10,0.3)" stroke-width="1.5" transform="rotate(-15 430 130)"/>
+            <ellipse cx="80" cy="350" rx="14" ry="9" fill="rgba(92,51,23,0.35)" transform="rotate(25 80 350)"/>
+            <line x1="80" y1="341" x2="80" y2="359" stroke="rgba(200,134,10,0.3)" stroke-width="1.5" transform="rotate(25 80 350)"/>
+        </svg>
+
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <div class="hero-badge">☕ Café de Colombia · Madrid</div>
+            <h1>Cafés<span>Oliver & Hugo</span></h1>
+            <p class="hero-subtitle">Donde cada taza cuenta una historia. El café de calidad absoluta que transforma tu pausa en un momento memorable.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn-primary">Visítanos</a>
+                <a href="#historia" class="btn-secondary">Nuestra historia</a>
+            </div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">
+            <div class="scroll-line"></div>
+            <span>Descubrir</span>
+        </div>
+    </section>
+
+    <!-- STATS BAR -->
+    <div class="stats-bar" aria-label="Datos destacados">
+        <div class="stats-grid">
+            <div class="stat-item fade-in">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Café de Colombia</span>
+            </div>
+            <div class="stat-item fade-in">
+                <span class="stat-number">2</span>
+                <span class="stat-label">Generaciones de pasión</span>
+            </div>
+            <div class="stat-item fade-in">
+                <span class="stat-number">6</span>
+                <span class="stat-label">Días a la semana</span>
+            </div>
+            <div class="stat-item fade-in">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Momentos únicos</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NUESTRA HISTORIA -->
+    <section id="historia" aria-labelledby="historia-titulo">
+        <div class="historia-container">
+            <div class="historia-visual fade-in" aria-hidden="true">
+                <svg viewBox="0 0 500 550" fill="none" xmlns="http://www.w3.org/2000/svg" class="historia-main-img">
+                    <rect width="500" height="550" fill="rgba(44,26,14,0.3)" rx="4"/>
+                    <!-- Mesa de familia -->
+                    <rect x="50" y="380" width="400" height="20" rx="4" fill="rgba(92,51,23,0.7)"/>
+                    <rect x="80" y="400" width="20" height="100" rx="3" fill="rgba(92,51,23,0.6)"/>
+                    <rect x="400" y="400" width="20" height="100" rx="3" fill="rgba(92,51,23,0.6)"/>
+                    <!-- Tazas sobre la mesa -->
+                    <rect x="150" y="340" width="60" height="40" rx="4" fill="rgba(44,26,14,0.9)" stroke="rgba(200,134,10,0.4)" stroke-width="1.5"/>
+                    <ellipse cx="180" cy="340" rx="25" ry="8" fill="rgba(160,82,45,0.6)"/>
+                    <path d="M210 355 Q225 355 225 368 Q225 381 210 381" stroke="rgba(200,134,10,0.4)" stroke-width="3" fill="none"/>
+                    <rect x="290" y="340" width="60" height="40" rx="4" fill="rgba(44,26,14,0.9)" stroke="rgba(200,134,10,0.4)" stroke-width="1.5"/>
+                    <ellipse cx="320" cy="340" rx="25" ry="8" fill="rgba(160,82,45,0.6)"/>
+                    <path d="M350 355 Q365 355 365 368 Q365 381 350 381" stroke="rgba(200,134,10,0.4)" stroke-width="3" fill="none"/>
+                    <!-- Vapor -->
+                    <path d="M175 330 Q178 315 172 300" stroke="rgba(200,134,10,0.3)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M315 330 Q318 315 312 300" stroke="rgba(200,134,10,0.3)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <!-- Siluetas familiares -->
+                    <!-- Padre -->
+                    <circle cx="140" cy="220" r="35" fill="rgba(92,51,23,0.5)"/>
+                    <rect x="110" y="255" width="60" height="90" rx="10" fill="rgba(92,51,23,0.4)"/>
+                    <!-- Madre -->
+                    <circle cx="250" cy="210" r="35" fill="rgba(92,51,23,0.5)"/>
+                    <rect x="218" y="245" width="65" height="95" rx="10" fill="rgba(92,51,23,0.4)"/>
+                    <!-- Oliver niño -->
+                    <circle cx="340" cy="240" r="28" fill="rgba(200,134,10,0.35)"/>
+                    <rect x="315" y="268" width="50" height="75" rx="8" fill="rgba(200,134,10,0.25)"/>
+                    <!-- Hugo niño -->
+                    <circle cx="410" cy="260" r="22" fill="rgba(200,134,10,0.35)"/>
+                    <rect x="390" y="282" width="42" height="65" rx="8" fill="rgba(200,134,10,0.25)"/>
+                    <!-- Detalles decorativos -->
+                    <text x="250" y="160" text-anchor="middle" fill="rgba(200,134,10,0.15)" font-size="80" font-family="serif">☕</text>
+                    <!-- Fondo cálido -->
+                    <rect x="0" y="0" width="500" height="550" fill="url(#histGrad)" rx="4"/>
+                    <defs>
+                        <radialGradient id="histGrad" cx="50%" cy="50%" r="70%">
+                            <stop offset="0%" stop-color="rgba(200,134,10,0.05)"/>
+                            <stop offset="100%" stop-color="rgba(0,0,0,0.3)"/>
+                        </radialGradient>
+                    </defs>
+                    <!-- Marco dorado -->
+                    <rect x="1" y="1" width="498" height="548" rx="4" fill="none" stroke="rgba(200,134,10,0.2)" stroke-width="2"/>
+                </svg>
+                <div class="historia-accent" aria-hidden="true"></div>
+                <div class="historia-badge" aria-hidden="true">
+                    <span class="historia-badge-icon">☕</span>
+                    <span class="historia-badge-text">Tradición familiar</span>
+                </div>
+            </div>
+
+            <div class="historia-content fade-in">
+                <span class="section-tag">Quiénes somos</span>
+                <h2 id="historia-titulo">Una historia de <em>café, familia</em> y momentos</h2>
+                <p>Oliver y Hugo crecieron en un hogar donde el café era mucho más que una bebida. Sus padres, grandes amantes del café, convirtieron cada taza en un ritual sagrado: el momento de reunirse, de contarse historias, de estar presentes el uno para el otro.</p>
+                <p>Aquellas sobremesas llenas de aroma y relatos fueron la semilla de lo que hoy es <strong style="color: var(--crema);">Cafés Oliver y Hugo</strong>. Un lugar donde la calidad del café es innegociable, pero donde lo verdaderamente especial es cómo te hace sentir.</p>
+                <p>Cuando entras por nuestra puerta, no eres un cliente. Eres parte de la familia.</p>
+
+                <div class="historia-firma">
+                    <div class="firma-avatars">
+                        <div class="firma-avatar" aria-label="Oliver">O</div>
+                        <div class="firma-avatar" aria-label="Hugo">H</div>
+                    </div>
+                    <div class="firma-text">
+                        <strong>Oliver & Hugo</strong>
+                        <span>Fundadores · Madrid</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" aria-labelledby="servicios-titulo">
+        <div class="section-header fade-in">
+            <span class="section-tag">Lo que ofrecemos</span>
+            <h2 id="servicios-titulo">Todo lo que necesitas para tu mejor café</h2>
+            <div class="divider" aria-hidden="true"></div>
+            <p>Desde disfrutarlo en nuestra terraza hasta prepararlo en casa con los mejores productos.</p>
+        </div>
+
+        <div class="servicios-grid">
+
+            <article class="servicio-card fade-in">
+                <div class="servicio-icon" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="8" y="22" width="28" height="20" rx="3" fill="rgba(44,26,14,0.8)" stroke="rgba(200,134,10,0.6)" stroke-width="1.5"/>
+                        <ellipse cx="22" cy="22" rx="12" ry="4" fill="rgba(160,82,45,0.5)"/>
+                        <path d="M36 28 Q43 28 43 34 Q43 40 36 40" stroke="rgba(200,134,10,0.6)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <path d="M18 16 Q19 11 17 7" stroke="rgba(200,134,10,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <path d="M22 15 Q23 10 21 6" stroke="rgba(200,134,10,0.3)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <path d="M26 16 Q27 11 25 7" stroke="rgba(200,134,10,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <h3>Café en Terraza</h3>
+                <p>Disfruta de nuestro café de Colombia de calidad absoluta en nuestra terraza. Cada taza viene acompañada de una minimagdalena artesanal. Una experiencia sensorial completa.</p>
+                <span class="servicio-tag">Consumo en local</span>
+            </article>
+
+            <article class="servicio-card fade-in">
+                <div class="servicio-icon" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="10" y="10" width="28" height="32" rx="4" fill="rgba(44,26,14,0.8)" stroke="rgba(200,134,10,0.6)" stroke-width="1.5"/>
+                        <ellipse cx="24" cy="22" rx="8" ry="8" fill="rgba(92,51,23,0.7)"/>
+                        <ellipse cx="22" cy="20" rx="3" ry="4" fill="rgba(44,26,14,0.8)" transform="rotate(-20 22 20)"/>
+                        <line x1="24" y1="14" x2="24" y2="10" stroke="rgba(200,134,10,0.5)" stroke-width="2"/>
+                        <line x1="16" y1="36" x2="32" y2="36" stroke="rgba(200,134,10,0.3)" stroke-width="1.5"/>
+                        <line x1="16" y1="39" x2="28" y2="39" stroke="rgba(200,134,10,0.2)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h3>Café en Grano</h3>
+                <p>Selección de café de Colombia de máxima calidad para llevarte a casa. El mismo café que tomamos en el local, para que puedas recrear la experiencia cada mañana.</p>
+                <span class="servicio-tag">Venta en tienda</span>
+            </article>
+
+            <article class="servicio-card fade-in">
+                <div class="servicio-icon" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <path d="M12 14 L14 38 H34 L36 14 Z" fill="rgba(44,26,14,0.8)" stroke="rgba(200,134,10,0.6)" stroke-width="1.5"/>
+                        <rect x="10" y="10" width="28" height="6" rx="2" fill="rgba(92,51,23,0.6)" stroke="rgba(200,134,10,0.4)" stroke-width="1"/>
+                        <line x1="16" y1="22" x2="32" y2="22" stroke="rgba(200,134,10,0.3)" stroke-width="1"/>
+                        <line x1="17" y1="28" x2="31" y2="28" stroke="rgba(200,134,10,0.3)" stroke-width="1"/>
+                        <line x1="18" y1="34" x2="30" y2="34" stroke="rgba(200,134,10,0.3)" stroke-width="1"/>
+                    </svg>
+                </div>
+                <h3>Café Molido</h3>
+                <p>Para quienes prefieren la comodidad sin renunciar a la calidad. Molemos nuestro café de Colombia con el punto exacto para cada tipo de preparación.</p>
+                <span class="servicio-tag">Venta en tienda</span>
+            </article>
+
+            <article class="servicio-card fade-in">
+                <div class="servicio-icon" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <rect x="8" y="18" width="32" height="24" rx="4" fill="rgba(44,26,14,0.8)" stroke="rgba(200,134,10,0.6)" stroke-width="1.5"/>
+                        <rect x="14" y="10" width="20" height="10" rx="3" fill="rgba(92,51,23,0.7)" stroke="rgba(200,134,10,0.4)" stroke-width="1"/>
+                        <circle cx="18" cy="30" r="4" fill="none" stroke="rgba(200,134,10,0.5)" stroke-width="1.5"/>
+                        <circle cx="30" cy="30" r="4" fill="none" stroke="rgba(200,134,10,0.5)" stroke-width="1.5"/>
+                        <line x1="22" y1="30" x2="26" y2="30" stroke="rgba(200,134,10,0.3)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h3>Cafeteras para Casa</h3>
+                <p>Equipos de alta calidad seleccionados por Oliver y Hugo para que puedas disfrutar del mejor café en tu hogar. Solo vendemos lo que nosotros mismos usaríamos.</p>
+                <span class="servicio-tag">Venta en tienda</span>
+            </article>
+
+            <article class="servicio-card fade-in" style="grid-column: span 2;">
+                <div class="servicio-icon" aria-hidden="true">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="20" r="10" fill="none" stroke="rgba(200,134,10,0.6)" stroke-width="1.5"/>
+                        <circle cx="24" cy="20" r="4" fill="rgba(200,134,10,0.3)"/>
+                        <path d="M14 34 Q24 28 34 34 Q38 44 24 44 Q10 44 14 34Z" fill="rgba(44,26,14,0.6)" stroke="rgba(200,134,10,0.4)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+                <h3>Trato Familiar Único</h3>
+                <p>Más allá del café, en Cafés Oliver y Hugo encontrarás un espacio donde el tiempo se detiene. Te tratamos como a un miembro más de la familia. Ven a conocernos, cuéntanos tu historia y déjanos contarte la nuestra. Aquí siempre hay un momento para una buena conversación.</p>
+                <span class="servicio-tag">Experiencia completa</span>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- NUESTRO CAFÉ -->
+    <section id="cafe" aria-labelledby="cafe-titulo">
+        <div class="cafe-container">
+            <div class="cafe-content fade-in">
+                <span class="section-tag">Nuestro origen</span>
+                <h2 id="cafe-titulo">Café de <span>Colombia</span>,<br>de máxima calidad</h2>
+                <p>No todos los cafés son iguales. El nuestro proviene directamente de Colombia, seleccionado con criterio y cuidado para ofrecerte una experiencia que va mucho más allá del café de cada día.</p>
+                <p>Sabemos que el precio es una consideración importante. Por eso nos enorgullece decirte que por apenas unos céntimos más que un café convencional, estás eligiendo algo completamente diferente. Una vez lo pruebas, no hay vuelta atrás.</p>
+
+                <ul class="cafe-features">
+                    <li>Origen 100% Colombia, selección de máxima calidad</li>
+                    <li>Perfil de sabor rico, equilibrado y memorable</li>
+                    <li>Disponible para consumo en terraza, en grano y molido</li>
+                    <li>Accesible para todos, sin renunciar a la excelencia</li>
+                    <li>El mismo café para profesionales y para quienes desconectan</li>
+                </ul>
+            </div>
+
+            <div class="cafe-visual fade-in" aria-hidden="true">
+                <svg viewBox="0 0 450 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Fondo -->
+                    <rect width="450" height="500" fill="rgba(44,26,14,0.2)" rx="8"/>
+                    <!-- Granos de café grandes -->
+                    <g transform="translate(80, 80)">
+                        <ellipse cx="0" cy="0" rx="45" ry="28" fill="rgba(92,51,23,0.8)" stroke="rgba(200,134,10,0.5)" stroke-width="1.5" transform="rotate(-20)"/>
+                        <path d="M-35 -8 Q0 0 35 8" stroke="rgba(200,134,10,0.4)" stroke-width="1.5" fill="none"/>
+                    </g>
+                    <g transform="translate(250, 120)">
+                        <ellipse cx="0" cy="0" rx="50" ry="30" fill="rgba(92,51,23,0.7)" stroke="rgba(200,134,10,0.4)" stroke-width="1.5" transform="rotate(15)"/>
+                        <path d="M-38 8 Q0 0 38 -8" stroke="rgba(200,134,10,0.35)" stroke-width="1.5" fill="none" transform="rotate(15)"/>
+                    </g>
+                    <g transform="translate(150, 200)">
+                        <ellipse cx="0" cy="0" rx="55" ry="34" fill="rgba(160,82,45,0.6)" stroke="rgba(200,134,10,0.5)" stroke-width="2" transform="rotate(-10)"/>
+                        <path d="M-42 -5 Q0 0 42 5" stroke="rgba(200,134,10,0.4)" stroke-width="2" fill="none" transform="rotate(-10)"/>
+                    </g>
+                    <g transform="translate(330, 220)">
+                        <ellipse cx="0" cy="0" rx="35" ry="22" fill="rgba(92,51,23,0.6)" stroke="rgba(200,134,10,0.4)" stroke-width="1.5" transform="rotate(30)"/>
+                        <path d="M-28 8 Q0 0 28 -8"
